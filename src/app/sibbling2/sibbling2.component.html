@@ -1,0 +1,7 @@
+<p>I am sibbling 2</p>
+<select name="city" id="" (change)="onChange($event)">
+  <option selected value="">Select city</option>
+  <option *ngFor="let city of cities" [value]="city">
+    {{ city }}
+  </option>
+</select>
