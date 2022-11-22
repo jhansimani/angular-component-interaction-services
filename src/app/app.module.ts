@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { Sibbling1Component } from './sibbling1/sibbling1.component';
 import { Sibbling2Component } from './sibbling2/sibbling2.component';
+import { NumberSepartor } from './numberSeparator.pipe';
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
@@ -14,6 +15,7 @@ import { Sibbling2Component } from './sibbling2/sibbling2.component';
     HelloComponent,
     Sibbling1Component,
     Sibbling2Component,
+    NumberSepartor,
   ],
   bootstrap: [AppComponent],
 })
