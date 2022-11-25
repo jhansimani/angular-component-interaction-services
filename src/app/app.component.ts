@@ -40,7 +40,6 @@ export class AppComponent implements OnInit, OnDestroy {
     //   });
     this.ofObseSubscription = this.ofObse
       .pipe(
-        
         mergeMap((val) => {
           console.log('Source value ' + val);
           console.log('starting new observable');
