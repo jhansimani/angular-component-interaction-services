@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, VERSION } from '@angular/core';
-import { filter, map, of, switchMap } from 'rxjs';
+import { filter, map, of, switchMap, delay } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
 import { CustomService } from './custom.service';
 
@@ -40,6 +40,7 @@ export class AppComponent implements OnInit, OnDestroy {
     //   });
     this.ofObseSubscription = this.ofObse
       .pipe(
+        delay(5),
         mergeMap((val) => {
           console.log('Source value ' + val);
           console.log('starting new observable');
