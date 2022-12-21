@@ -25,8 +25,9 @@ export class NumberSepartor implements PipeTransform {
         let v2 = jkl.slice(0);
         transformedValue.push(v2.reverse().join(''));
       }
-      console.log(transformedValue.reverse().join('_'));
-      return transformedValue.join(',');
+      // console.log(transformedValue);
+      // console.log(transformedValue.reverse().join('_'));
+      return transformedValue.reverse().join(',');
     }
   }
 }
