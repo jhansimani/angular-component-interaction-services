@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit, VERSION } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { filter, map, of, switchMap, delay } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
 import { CustomService } from './custom.service';
+import { NumberValidator } from './numberValidator';
 
 @Component({
   selector: 'my-app',
@@ -13,6 +15,12 @@ export class AppComponent implements OnInit, OnDestroy {
   transformedNumArray: any = [];
   ofObse = of(1, 2, 3);
   ofObseSubscription: any;
+  numberForm = new FormGroup({
+    age: new FormControl('', [
+      Validators.required,
+      Validators.pattern('^[1-9][0-9]?$|^100$'),
+    ]),
+  });
   constructor(private service: CustomService) {}
   ngOnInit() {
     this.service.numArray
@@ -53,4 +61,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {}
+  onSubmit() {
+    console.log(this.numberForm);
+  }
 }

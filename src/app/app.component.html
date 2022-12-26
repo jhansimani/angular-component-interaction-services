@@ -7,3 +7,31 @@
 
 <p>{{ 92876543210 | numberSeparator: 3 }}</p>
 <p>{{ 9876543210 | numberSeparator }}</p>
+
+<form [formGroup]="numberForm" (ngSubmit)="onSubmit()">
+  <label>Enter Age </label>
+  <input type="number" formControlName="age" />
+  <div
+    *ngIf="
+      numberForm.controls['age'].touched && numberForm.controls['age'].invalid
+    "
+  >
+    <p
+      *ngIf="
+        numberForm.controls['age'].errors &&
+        numberForm.controls['age'].errors.required
+      "
+    >
+      Age is required
+    </p>
+    <p
+      *ngIf="
+        numberForm.controls['age'].errors &&
+        numberForm.controls['age'].errors.pattern
+      "
+    >
+      Number should match Pattern
+    </p>
+  </div>
+  <button>Submit</button>
+</form>
